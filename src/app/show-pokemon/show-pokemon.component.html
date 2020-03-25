@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-card class="card">
+        <mat-card-content>
+            <div class="backButton">
+                <img src="../../assets/backButton.png" routerLink="/" />
+            </div>
+            <div class="image-container">
+                <div class="circleBase">
+                    <img
+                        mat-card-image
+                        src="{{ pokemon.sprites.front_default }}"
+                        alt="{{ pokemon.name }}"
+                    />
+                </div>
+            </div>
+            <div class="main-info">
+                <div class="id">#{{ pokemon.id }}</div>
+                <div class="title">
+                    {{ pokemon.name | titlecase }}
+                </div>
+                <div class="divider"></div>
+                <div class="description">
+                    <p>Estatura: {{ pokemon.height }} ft</p>
+                    <p>Peso: {{ pokemon.weight }} Lbs</p>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

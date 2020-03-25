@@ -1,0 +1,51 @@
+<mat-card class="main-card">
+    <div class="filter">
+        <form class="form">
+            <mat-form-field class="full-width">
+                <input
+                    matInput
+                    placeholder="Filtrar pokemones por nombre"
+                    (input)="filterPokemon()"
+                    [(ngModel)]="filteredOut"
+                    name="filter"
+                />
+            </mat-form-field>
+            <p>{{ filteredOut }}</p>
+        </form>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="cards-container">
+        <mat-card
+            class="card"
+            *ngFor="let pokemon of filteredPokemons"
+            (click)="passParameters(pokemon)"
+        >
+            <mat-card-header>
+                <div class="id">
+                    <p>{{ pokemon.id }}</p>
+                </div>
+                <mat-card-title>
+                    {{ pokemon.name | titlecase }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <img
+                    mat-card-image
+                    src="{{ pokemon.sprites.front_default }}"
+                    alt="{{ pokemon.name }}"
+                />
+
+                <!-- <div class="footer">
+                    <mat-button-toggle-group #group="matButtonToggleGroup">
+                        <mat-button-toggle>
+                            ID / {{ pokemon.habildiad }}
+                        </mat-button-toggle>
+                        <mat-button-toggle>
+                            ID / {{ pokemon.id }}
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div> -->
+            </mat-card-content>
+        </mat-card>
+    </div>
+</mat-card>
